@@ -1,6 +1,5 @@
 #ifndef UTILS_H
 #define UTILS_H
-
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 #include <CGAL/Delaunay_triangulation_2.h>
 #include <CGAL/Voronoi_diagram_2.h>
@@ -22,14 +21,12 @@ typedef CGAL::Voronoi_diagram_2<Delaunay, AT, AP> Voronoi;
 
 // Tipo de aresta para saída (par de pontos)
 typedef std::pair<Point, Point> Edge;
-
 // Função para carregar pontos de um arquivo
 std::vector<Point> loadPoints(const std::string& filename);
-
 // Função para salvar arestas em um arquivo (ex: para visualização)
 void saveEdges(const std::vector<Edge>& edges, const std::string& filename);
 
 // Métricas
 double calculateRMSE(const std::vector<Edge>& edges, const std::vector<Point>& groundTruth);
-
+double calculateHausdorff(const std::vector<Edge>& edges, const std::vector<Point>& groundTruth);
 #endif // UTILS_H
